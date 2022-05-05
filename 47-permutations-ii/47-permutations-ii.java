@@ -2,17 +2,20 @@ class Solution {
     
     
     public List<List<Integer>> permuteUnique(int[] nums) {
+        
 	Arrays.sort(nums); // sort is necessary
-	List<List<Integer>> resultList = new ArrayList<List<Integer>>();
+	List<List<Integer>> resultList = new ArrayList<>();
 	traverse(resultList, new ArrayList<Integer>(), nums, new boolean[nums.length]);
 	return resultList;
-}
+        
+   }
     
     
     
    public void traverse(List<List<Integer>> resultList, List<Integer> current, int[] nums, boolean[] used) {
 	if( current.size() == nums.length )
 		resultList.add(new ArrayList<Integer>(current));
+       
 	else{
 		for(int i = 0; i < nums.length; i++) {
 			if( used[i] || ( i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) ) // remove duplicate
@@ -24,9 +27,7 @@ class Solution {
 			current.remove(current.size() - 1);
 		}
 	}
-}
-
-
-    
-    
+       
+  }
+       
 }
