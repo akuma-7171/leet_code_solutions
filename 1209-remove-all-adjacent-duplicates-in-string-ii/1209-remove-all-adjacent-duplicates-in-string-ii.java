@@ -13,6 +13,7 @@ class Solution {
                 
             else {
                 countSt.push(1);
+                
             }
             
             charSt.push(ch);
