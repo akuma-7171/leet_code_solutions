@@ -28,9 +28,7 @@ class GFG{
 
 class Solution {
     int minDist(int a[], int n, int x, int y) {
-        
-        
-      int min_dist = Integer.MAX_VALUE;
+         int min_dist = Integer.MAX_VALUE;
         
         int st = -1, en = -1;
         
@@ -53,6 +51,5 @@ class Solution {
         }
         
         return min_dist==Integer.MAX_VALUE ? -1 : min_dist;
-        
     }
 }
