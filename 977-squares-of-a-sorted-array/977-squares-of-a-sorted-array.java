@@ -2,7 +2,7 @@ class Solution {
     public int[] sortedSquares(int[] nums) {
         
         int lo = 0;
-        int  hi = nums.length-1;
+        int hi = nums.length-1;
         
         int res[] = new int[nums.length];
         
@@ -20,8 +20,8 @@ class Solution {
             
         }
         
-        
         return res;
+         
         
     }
 }
