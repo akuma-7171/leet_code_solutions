@@ -8,6 +8,7 @@ class Solution {
         }
         
         for(int i=0; i<nums.length; i++){
+            
             if(map.get(nums[i]) > nums.length/2){
                 return nums[i];
             }
