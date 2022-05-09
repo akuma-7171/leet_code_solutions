@@ -1,22 +1,20 @@
 class Solution {
-    public int fib(int N) {
+    public int fib(int n) {
         
-      if (N <= 1) {
-		return N;            
-	  }
- 
-	
-	int[] map = new int[N+1];
-	
-	
-	map[0] = 0;
-	map[1] = 1;
-	
-	
-	for (int i = 2; i <= N; i += 1) {
-		map[i] = map[i-1] + map[i-2];
-	}
-	return map[N];
+        if(n <= 1){
+            return n;
+        }
+        
+        int []fibbo = new int[n+1];
+        
+        fibbo[0] = 0;
+        fibbo[1] = 1;
+        
+        for(int i=2; i<=n; i++){
+            fibbo[i] = fibbo[i-1]+fibbo[i-2];
+        }
+        
+        return fibbo[n];
         
     }
 }
