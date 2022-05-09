@@ -4,7 +4,7 @@ class Solution {
         HashMap<Integer, Integer> map = new HashMap<>();
         
         for(int i=0; i<nums.length; i++){
-        
+            
             int compli = target-nums[i];
             
             if(!map.containsKey(compli)){
@@ -12,14 +12,12 @@ class Solution {
             }
             
             else{
-                return new int[] {i, map.get(compli)};
+                return new int[]{i, map.get(compli)};
             }
             
         }
         
-        
-        throw new IllegalArgumentException("not a match");
-        
+        throw new IllegalArgumentException("match not found");
         
     }
 }
