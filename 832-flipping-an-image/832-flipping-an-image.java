@@ -7,9 +7,9 @@ class Solution {
             int start =0, end=image[i].length -1;
 			
             while(start < end){
-                int temp = image[i][end];
-                image[i][end] = image[i][start];
-                image[i][start] = temp;
+                int temp = image[i][start];
+                image[i][start] = image[i][end];
+                image[i][end] = temp;
                 start++;
                 end--;
             }
