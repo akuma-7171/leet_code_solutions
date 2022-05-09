@@ -3,6 +3,7 @@ class Solution {
         
         int p1 = m-1;
         int p2 = n-1;
+        
         int i = m+n-1;
         
         while(p2 >= 0){
@@ -16,7 +17,6 @@ class Solution {
             }
             
         }
-        
         
     }
 }
