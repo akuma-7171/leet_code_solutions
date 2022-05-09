@@ -1,25 +1,14 @@
 class Solution {
-    public String longestCommonPrefix(String[] strs) {
+    public int removeDuplicates(int[] nums) {
         
-        if(strs == null){
-            return null;
-        }
+      int i = 0;
         
-        String prefix = strs[0];
+    for (int n : nums)
+        if (i == 0 || n > nums[i-1])
+            nums[i++] = n;
         
+    return i;
         
-        for(int i=1; i<strs.length; i++){
-            
-            while(strs[i].indexOf(prefix) != 0){
-                
-                prefix = prefix.substring(0, prefix.length()-1);
-                
-            }
-            
-        }
-        
-        
-        return prefix;
         
     }
 }
