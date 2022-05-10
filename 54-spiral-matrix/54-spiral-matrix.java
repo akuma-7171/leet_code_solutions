@@ -8,8 +8,6 @@ class Solution {
         int column_begin = 0;
         int column_end = matrix[0].length-1;
         
-        
-        
         while(row_begin <= row_end && column_begin <= column_end){
             
             for(int i=column_begin; i<=column_end; i++){
@@ -27,27 +25,23 @@ class Solution {
             
             if(row_begin <= row_end){
                 
-                for(int i=column_end; i>=column_begin; i--){
-                res.add(matrix[row_end][i]);
-                    
-            }
+                 for(int i=column_end; i>=column_begin; i--){
+                   res.add(matrix[row_end][i]);
+                }
                 
                 row_end--;
                 
             }
             
-                if(column_begin <= column_end){
+            
+            if(column_begin <= column_end){
                 
-                for(int i=row_end; i>=row_begin; i--){
-                res.add(matrix[i][column_begin]);
-                    
-            }
+                 for(int i=row_end; i>=row_begin; i--){
+                      res.add(matrix[i][column_begin]);
+                  }
                 
                 column_begin++;
-                
             }
-            
-            
             
         }
         
