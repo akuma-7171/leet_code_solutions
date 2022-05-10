@@ -9,12 +9,9 @@ class Solution {
         while(start <= end){
             
             if(height[start] < height[end]){
-                
                 max = Math.max(max, height[start]*(end-start));
                 start++;
-                
             }
-            
             
             else{
                 max = Math.max(max, height[end]*(end-start));
