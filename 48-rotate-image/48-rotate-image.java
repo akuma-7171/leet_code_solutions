@@ -23,7 +23,7 @@ class Solution {
                 
                 int temp = matrix[i][j];
                 
-                matrix[i][j] = matrix[i][n-1-j];  // 
+                matrix[i][j] = matrix[i][n-1-j];  // flip columnwise
                 
                 matrix[i][n-1-j] = temp;
                 
