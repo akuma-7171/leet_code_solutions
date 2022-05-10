@@ -1,25 +1,49 @@
 class Solution {
-    public String longestCommonPrefix(String[] strs) {
+    public List<List<Integer>> threeSum(int[] nums) {
         
-        if(strs == null){
-            return null;
-        }
+        List<List<Integer>> res = new ArrayList<>();
         
-        String prefix = strs[0];
+        Arrays.sort(nums);
         
-        
-        for(int i=1; i<strs.length; i++){
+        for(int i=0; i<nums.length-2; i++){
             
-            while(strs[i].indexOf(prefix) != 0){
+            if(i == 0 || (i>0 && nums[i] != nums[i-1])){
                 
-                prefix = prefix.substring(0, prefix.length()-1);
+                int low = i+1;
+                int high = nums.length-1;
+                
+                int cs = 0-nums[i];
+                
+                while(low < high){
+                    
+                    if(nums[low]+nums[high] == cs){
+                        
+                        res.add(Arrays.asList(nums[i], nums[low], nums[high]));
+                        
+                        while(low < high && nums[low] == nums[low+1]) low++;
+                        while(low < high && nums[high] == nums[high-1]) high--;
+                        
+                        low++;
+                        high--;
+                        
+                    }
+                    
+                    else if(nums[low]+nums[high] > cs){
+                        high--;
+                    }
+                    
+                    else{
+                        low++;
+                    }
+                    
+                }
                 
             }
             
         }
         
         
-        return prefix;
+        return res;
         
     }
 }
