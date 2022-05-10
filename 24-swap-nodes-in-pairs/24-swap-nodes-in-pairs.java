@@ -1,25 +1,33 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
 class Solution {
-    public String longestCommonPrefix(String[] strs) {
+    public ListNode swapPairs(ListNode head) {
         
-        if(strs == null){
-            return null;
+        ListNode temp = new ListNode(0);
+        
+        temp.next = head;
+        
+        ListNode current = temp;
+        
+        while(current.next != null && current.next.next != null){
+            ListNode first_node = current.next;
+            ListNode second_node = current.next.next;
+            
+            first_node.next = second_node.next;
+            current.next = second_node;
+            current.next.next = first_node;
+            current = current.next.next;
         }
         
-        String prefix = strs[0];
-        
-        
-        for(int i=1; i<strs.length; i++){
-            
-            while(strs[i].indexOf(prefix) != 0){
-                
-                prefix = prefix.substring(0, prefix.length()-1);
-                
-            }
-            
-        }
-        
-        
-        return prefix;
+        return temp.next;
         
     }
 }
