@@ -1,23 +1,22 @@
 class Solution {
     public int jump(int[] nums) {
-        
-        int far = 0;
+
         int jump = 0;
-        int end = 0;
-        
-        
-        for(int i=0; i<nums.length-1; i++){
-            
-            far = Math.max(far, i+nums[i]);
-            
-            if(i == end){
-                jump++;
-                end = far;
-            }
-            
-        }
-        
-        return jump;
-        
+		int left = 0;
+		int right = 0;
+		//till we reach end of the array
+		while (right < nums.length - 1) {
+			int max = 0;
+			//find max reach (in range of indexes left and right)
+			for (int i = left; i <= right; i++) {
+				max = Math.max(nums[i] + i, max);
+			}
+			//update new boundaries
+			left = right + 1;
+			right = max;
+			jump++;
+		}
+		return jump;
+	
     }
 }
