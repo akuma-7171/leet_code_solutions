@@ -3,7 +3,7 @@ class Solution {
     
     public List<List<Integer>> permuteUnique(int[] nums) {
         
-	Arrays.sort(nums); // sort is necessary
+	Arrays.sort(nums); 
 	List<List<Integer>> resultList = new ArrayList<>();
 	traverse(resultList, new ArrayList<Integer>(), nums, new boolean[nums.length]);
 	return resultList;
@@ -18,7 +18,7 @@ class Solution {
        
 	else{
 		for(int i = 0; i < nums.length; i++) {
-			if( used[i] || ( i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) ) // remove duplicate
+			if( used[i] || ( i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) ) 
 				continue;
 			current.add(nums[i]);
 			used[i] = true;
