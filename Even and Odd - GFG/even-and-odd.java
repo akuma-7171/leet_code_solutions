@@ -73,11 +73,11 @@ class Solution {
        }
        for(int i=0;i<N;i++){
            if(i%2==0){
-               arr[i]=even.peek();
-               even.pop();
+               arr[i]=even.pop();
+               
            }else{
-               arr[i]=odd.peek();
-               odd.pop();
+               arr[i]=odd.pop();
+               
            }
         
     }
