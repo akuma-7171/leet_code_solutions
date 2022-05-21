@@ -1,30 +1,9 @@
-class Solution {
-    public double myPow(double x, int n) {
-        
-        double ans = 1;
-        double power = n;
-        
-        if(power < 0){
-            power = -1 * power;
-        }
-        
-        while(power > 0){
-            if(power%2 == 0){
-                x = x*x;
-                power = power/2;
-            }
-            
-            else{
-                ans = ans*x;
-                power--;
-            }
-        }
-        
-        if(n<0){
-            ans = (double) 1 / (double) ans; 
-        }
-        
-        return ans;
-        
-    }
+public class Solution {
+   double myPow(double x, int n) {
+    if(n<0) return 1/x * myPow(1/x, -(n+1));
+    if(n==0) return 1;
+    if(n==2) return x*x;
+    if(n%2==0) return myPow( myPow(x, n/2), 2);
+    else return x*myPow( myPow(x, n/2), 2);
+ }
 }
