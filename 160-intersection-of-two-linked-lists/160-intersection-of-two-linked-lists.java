@@ -14,31 +14,30 @@ public class Solution {
         
         if(l1 == null || l2 == null) return null;
         
-        ListNode a_pointer = l1;
-        ListNode b_pointer = l2;
+        ListNode a = l1;
+        ListNode b = l2;
         
-        
-        while(a_pointer != b_pointer){
+        while(a != b){
             
-            if(a_pointer == null){
-                a_pointer = l2;
+            if(a == null){
+                a = l2;
             }
             
             else{
-                a_pointer = a_pointer.next;
+                a = a.next;
             }
             
-            if(b_pointer == null){
-                b_pointer = l1;
+            if(b == null){
+                b = l1;
             }
             
             else{
-                b_pointer = b_pointer.next;
+                b = b.next;
             }
             
         }
         
-        return a_pointer;
+        return a;
         
     }
 }
