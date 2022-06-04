@@ -3,7 +3,7 @@ class Solution {
         
         List<List<Integer>> ll = new ArrayList<>();
         
-        subsets(0, nums, new ArrayList<Integer>(), ll);
+        subsets(0, nums, new ArrayList<>(), ll);
         
         return ll;
         
