@@ -18,7 +18,9 @@ class Solution {
                 ans += map.get(rem);
             }
             
+            
             map.put(sum, map.getOrDefault(sum,0)+1);
+                
             
         }
         
