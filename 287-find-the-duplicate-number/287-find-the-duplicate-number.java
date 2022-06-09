@@ -4,14 +4,15 @@ class Solution {
         int slow = 0;
         int fast = 0;
         
-        
         while(true){
+            
             slow = nums[slow];
             fast = nums[nums[fast]];
             
-            if(slow == fast){
+            if(fast == slow){
                 break;
             }
+            
         }
         
         int slow2 = 0;
@@ -22,7 +23,7 @@ class Solution {
             
             if(slow == slow2){
                 break;
-            }
+            } 
         }
         
         return slow;
