@@ -1,25 +1,39 @@
 class Solution {
-    public String longestCommonPrefix(String[] strs) {
+    public int threeSumClosest(int[] nums, int target) {
         
-        if(strs == null){
-            return null;
-        }
+        int res = nums[0]+nums[1]+nums[nums.length-1];
         
-        String prefix = strs[0];
+        Arrays.sort(nums);
         
-        
-        for(int i=1; i<strs.length; i++){
+        for(int i=0; i<nums.length-2; i++){
             
-            while(strs[i].indexOf(prefix) != 0){
+            int low = i+1;
+            int high = nums.length-1;
+            
+            while(low < high){
                 
-                prefix = prefix.substring(0, prefix.length()-1);
+                int cs = nums[i]+nums[low]+nums[high];
+                
+                if(cs > target){
+                    high--;
+                }
+                
+                else {
+                    low++;
+                }
+                
+                
+                    if(Math.abs(cs-target) < Math.abs(res-target)){
+                        res=cs;
+                    }
+                
                 
             }
             
         }
         
         
-        return prefix;
+        return res;
         
     }
 }
