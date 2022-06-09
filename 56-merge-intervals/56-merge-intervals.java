@@ -7,7 +7,7 @@ class Solution {
         
         Arrays.sort(intervals, (arr1, arr2) -> Integer.compare(arr1[0], arr2[0]));
         
-        int [] curr = intervals[0];
+        int []curr = intervals[0];
         
         List<int[]> res = new ArrayList<>();
         
@@ -31,9 +31,6 @@ class Solution {
             }
             
         }
-        
-        
         return res.toArray(new int[res.size()][]);
-        
     }
 }
