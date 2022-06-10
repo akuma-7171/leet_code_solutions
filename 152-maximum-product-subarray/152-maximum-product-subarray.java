@@ -19,7 +19,7 @@ class Solution {
         
         curr_product = 1;
         
-         for(int i=nums.length-1; i>0; i--){
+         for(int i=nums.length-1; i>=0; i--){
             
             curr_product *= nums[i];
             
