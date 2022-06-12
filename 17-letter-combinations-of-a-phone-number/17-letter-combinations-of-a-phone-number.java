@@ -1,45 +1,31 @@
-class Solution {
-    public List<String> letterCombinations(String digits) {
-        
-        List<String> res = new ArrayList<>();
-        
-        if(digits == null || digits.length() == 0){
-            return res;
-        }
-        
-        String[] mapping = {
+ public class Solution {
+     
+        public static List<String> letterCombinations(String digits) {
             
-            "0",
-            "1",
-            "abc",
-            "def",
-            "ghi",
-            "jkl",
-            "mno",
-            "pqrs",
-            "tuv",
-            "wxyz"
+            String digitletter[] = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
             
-        };
-        
-        lettercombination(res, digits, "", 0, mapping);
-        return res;
-        
-        
-        
-    }
+            List<String> result = new ArrayList<String>();
     
-    public void lettercombination(List<String> res, String digits, String current, int index, String[] mapping){
-        if(index == digits.length()){
-            res.add(current);
-            return;
+            if (digits.length()==0) return result;
+            
+            result.add("");
+            for (int i=0; i<digits.length(); i++) 
+                result = combine(digitletter[digits.charAt(i)-'0'],result);
+            
+            return result;
+            
         }
+     
         
-        String letter = mapping[digits.charAt(index)-'0'];
-        
-        for(int i=0; i<letter.length(); i++){
-            lettercombination(res, digits, current+letter.charAt(i), index+1, mapping);
+        public static List<String> combine(String digit, List<String> l) {
+            
+            List<String> result = new ArrayList<String>();
+            
+            for (int i=0; i<digit.length(); i++) 
+                for (String x : l) 
+                    result.add(x+digit.charAt(i));
+    
+            return result;
+            
         }
-        
     }
-}
