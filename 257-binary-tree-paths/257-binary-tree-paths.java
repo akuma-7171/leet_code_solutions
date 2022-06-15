@@ -18,48 +18,44 @@ class Solution {
         
         List<String> res = new ArrayList<>();
         
-        if(root == null){
+        if(root == null) return res;
+        
+        String curr = Integer.toString(root.val);
+        
+        if(root.left == null  && root.right == null){
+            res.add(curr);
             return res;
         }
         
-        String current = Integer.toString(root.val);
-        
-        if(root.left == null && root.right == null){
-            res.add(current);
-        }
-        
         if(root.left != null){
-            dfs(root.left, current, res);
+            dfs(root.left,curr,res);
         }
         
         if(root.right != null){
-            dfs(root.right, current, res);
+            dfs(root.right,curr,res);
         }
         
         return res;
         
-        
-        
     }
     
-    
-    public void dfs(TreeNode node, String current, List<String> res){
+    public void dfs(TreeNode root, String curr, List<String> res){
         
-         current += "->" + node.val;
+        curr += "->" + root.val;
         
-        if(node.left == null && node.right == null){
-            res.add(current);
+        if(root.left == null && root.right == null){
+            res.add(curr);
             return;
         }
         
-        if(node.left != null){
-            dfs(node.left, current, res);
+        if(root.left != null){
+            dfs(root.left,curr,res);
         }
         
-        if(node.right != null){
-            dfs(node.right, current, res);
+        if(root.right != null){
+            dfs(root.right,curr,res);
         }
-        
         
     }
+    
 }
