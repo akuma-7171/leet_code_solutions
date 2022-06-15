@@ -1,28 +1,48 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
-    int sum;
+    int sum = 0;
+    
     public int rangeSumBST(TreeNode root, int low, int high) {
-        sum = 0;
         
-        dfs(root, low, high);
+        if(root == null){
+            return 0;
+        }
+        
+        search(root, low, high);
         
         return sum;
+        
+        
     }
-    private void dfs(TreeNode node, int low, int high){
-        if(node == null) return;
+    
+    public void search(TreeNode root, int low, int high){
         
-        int currentVal = node.val;
         
-        //add in sum, if its value in range
-        if(currentVal >= low && currentVal <= high) sum += currentVal;
+        if(root == null)
+            return ;
         
-        //no need to check in left, if current val is less than low
-        //As it given,this is BST, so in left there will lesser number
-        if(currentVal >= low)
-        dfs(node.left, low, high);
-        
-        //no need to check in right, if current val is greater that high
-        if(currentVal <= high)
-        dfs(node.right, low, high);
-    }
+         int currval = root.val;
+    
+        if(currval >= low && currval <= high) sum += currval;
+    
+        if(currval >= low) search(root.left, low, high);
+    
+        if(currval <= high) search(root.right, low, high);
+    
+        }   
     
 }
