@@ -14,6 +14,7 @@
  * }
  */
 class Solution {
+    
     int sum = 0;
     
     public int rangeSumBST(TreeNode root, int low, int high) {
@@ -22,27 +23,32 @@ class Solution {
             return 0;
         }
         
-        search(root, low, high);
+        dfs(root, low, high);
         
         return sum;
         
-        
     }
     
-    public void search(TreeNode root, int low, int high){
+    public void dfs(TreeNode root, int low, int high){
         
-        
-        if(root == null)
+        if(root == null){
             return ;
+        }
         
-         int currval = root.val;
-    
-        if(currval >= low && currval <= high) sum += currval;
-    
-        if(currval >= low) search(root.left, low, high);
-    
-        if(currval <= high) search(root.right, low, high);
-    
-        }   
+        int curr = root.val;
+        
+        if(curr >= low && curr <= high){
+            sum += curr;
+        }
+        
+        if(curr>=low){
+            dfs(root.left,low,high);
+        }
+        
+        if(curr<=high){
+            dfs(root.right,low,high);
+        }
+        
+    }
     
 }
