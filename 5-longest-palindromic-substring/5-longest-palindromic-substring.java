@@ -19,17 +19,17 @@ class Solution {
         
     }
     
-    public void helper(String s, int j, int k){
+    public void helper(String s, int i, int j){
         
-        while(j>=0 && k<s.length() &&(s.charAt(j) == s.charAt(k))){
-            j--;
-            k++;
+        while(i>=0 && j<s.length() &&(s.charAt(i) == s.charAt(j))){
+            i--;
+            j++;
         }
         
         
-        if(maxlen < k-j-1){
-            lo = j+1;
-            maxlen = k-j-1;
+        if(maxlen < j-i-1){
+            lo = i+1;
+            maxlen = j-i-1;
         }
         
     }
