@@ -3,8 +3,8 @@ class Solution {
         
        int n = nums.length;
         
-        for(int i=n-1; i>=0; i--){
-            for(int j=i; j>=0; j--){
+        for(int i=0; i<n; i++){
+            for(int j=i; j<n; j++){
                 
                 int temp = nums[i][j];
                 nums[i][j] = nums[j][i];
