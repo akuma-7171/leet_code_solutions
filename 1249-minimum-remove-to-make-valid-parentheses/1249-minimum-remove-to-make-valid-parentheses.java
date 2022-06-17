@@ -1,22 +1,29 @@
 class Solution {
     public String minRemoveToMakeValid(String s) {
         
+        
         StringBuilder sb = new StringBuilder();
         
         int open = 0;
         
         for(char c : s.toCharArray()){
+            
             if(c == '('){
                 open++;
             }
             
             else if(c == ')'){
-                if(open == 0) continue;
+                if(open == 0){
+                    continue;
+                }
+                
                 open--;
+                
             }
             
-            sb.append(c);
             
+                sb.append(c);
+               
         }
         
         
@@ -27,7 +34,10 @@ class Solution {
                 continue;
             }
             
-            res.append(sb.charAt(i));
+            
+                res.append(sb.charAt(i));
+            
+            
         }
         
         return res.reverse().toString();
