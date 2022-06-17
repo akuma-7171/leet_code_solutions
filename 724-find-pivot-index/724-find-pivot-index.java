@@ -16,7 +16,9 @@ class Solution {
             if(total-left_sum == left_sum-nums[i]){
                 return i;
             }
+            
         }
+        
         
         return -1;
         
