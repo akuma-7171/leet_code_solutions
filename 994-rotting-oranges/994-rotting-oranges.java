@@ -7,7 +7,7 @@ class Solution {
         for(int i=0; i<grid.length; i++){
             for(int j=0; j<grid[0].length; j++){
                 if(grid[i][j] == 1){
-                    fresh.add(""+i+j);
+                    fresh.add(""+i+j);                  // find location for both
                 }
                 
                 else if(grid[i][j] == 2){
@@ -17,7 +17,7 @@ class Solution {
         }
         
         
-        int min = 0;
+        int minutes = 0;
         int[][] dir = {{0,1}, {1,0}, {-1,0}, {0,-1}};
         
         while(fresh.size() > 0){
@@ -44,9 +44,9 @@ class Solution {
             }
             
             rotten = infected;
-            min++;
+            minutes++;
             
         }
-        return min;
+        return minutes;
     }
 }
