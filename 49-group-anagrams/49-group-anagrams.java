@@ -5,13 +5,10 @@ class Solution {
         
         HashMap<String, List<String>> map = new HashMap<>();
         
-        
         for(String s : strs){
             
             char chaar[] = s.toCharArray();
-            
             Arrays.sort(chaar);
-            
             String sorted = new String(chaar);
             
             if(!map.containsKey(sorted)){
@@ -19,11 +16,10 @@ class Solution {
             }
             
             
-            map.get(sorted).add(s);
+                map.get(sorted).add(s);
             
             
         }
-        
         
         res.addAll(map.values());
         
