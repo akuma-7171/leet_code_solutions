@@ -3,17 +3,17 @@ class Solution {
         
         int dp[] = new int[nums.length];
         
-        
-        
-        int omax = 0;
+        int global = 0;
         
         for(int i=0; i<dp.length; i++){
             
             int max = 0;
             
             for(int j=0; j<i; j++){
-                if(nums[j] < nums[i]){
-                    if(dp[j] > max){
+                
+                if(nums[j]<nums[i]){
+                    
+                    if(dp[j]>max){
                         max = dp[j];
                     }
                 }
@@ -21,14 +21,11 @@ class Solution {
             
             dp[i] = max+1;
             
-            if(dp[i] > omax){
-                omax = dp[i];
+            if(dp[i]>global){
+                global = dp[i];
             }
             
         }
-        
-        
-        return omax;
-        
+        return global;
     }
 }
