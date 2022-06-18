@@ -5,6 +5,7 @@ class Solution {
         
         for(int i=0; i<dp.length; i++){
             for(int j=0; j<=i; j++){
+                
                 String w2check = s.substring(j, i+1);
                 
                 if(wordDict.contains(w2check)){
