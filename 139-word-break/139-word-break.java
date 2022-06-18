@@ -5,18 +5,19 @@ class Solution {
         
         for(int i=0; i<s.length(); i++){
             for(int j=0; j<=i; j++){
-                String check_word = s.substring(j,i+1);
                 
-                if(wordDict.contains(check_word)){
-                    
+                String check = s.substring(j,i+1);
+                
+                if(wordDict.contains(check)){
                     if(j>0){
                         dp[i] += dp[j-1];
                     }
                     
                     else{
-                        dp[i] += 1;
+                        dp[i] = 1;
                     }
-                } 
+                }
+                
             }
         }
         return dp[s.length()-1] > 0;
