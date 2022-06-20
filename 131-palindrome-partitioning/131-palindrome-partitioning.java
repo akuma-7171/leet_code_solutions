@@ -1,44 +1,43 @@
 class Solution {
     
     List<List<String>> res = new ArrayList<>();
-    String strs;
     
     public List<List<String>> partition(String s) {
-        strs = s;
-        palindrome(new LinkedList<>(), 0);
+        palindrome(s,0,new ArrayList<>());
         return res;
     }
     
-    
-    public void palindrome(List<String> list, int start){
-        if(start == strs.length()){
-            res.add(new ArrayList<>(list));
+    public void palindrome(String s, int start, List<String> curr){
+        
+        if(start == s.length()){
+            res.add(new ArrayList<>(curr));
             return;
         }
         
-        for(int i=start+1; i<=strs.length(); i++){
-            String sub = strs.substring(start, i);
+        for(int i=start; i<s.length(); i++){
             
-            if(isValid(sub)){
-                list.add(sub);
-                palindrome(list, i);
-                list.remove(list.size()-1);
+            if(isvalid(s,start,i)){
+                curr.add(s.substring(start,i+1));
+                palindrome(s,i+1,curr);
+                curr.remove(curr.size()-1);
             }
             
         }
         
     }
     
-    
-    public boolean isValid(String s){
-        int n = s.length();
+    public boolean isvalid(String s, int start, int end){
         
-        for(int i=0; i<(n/2); i++){
-            if(s.charAt(i) != s.charAt(n-i-1)){
+        while(start<end){
+            
+            if(s.charAt(start) != s.charAt(end)){
                 return false;
             }
+            
+            start++;
+            end--;
+            
         }
-        
         return true;
     }
     
