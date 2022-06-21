@@ -17,43 +17,40 @@ class Solution {
         while(fast != null && fast.next != null){
             
             slow = slow.next;
-            fast = fast.next.next; 
+            fast = fast.next.next;
             
         }
         
-        
-        
-        ListNode revhead = reverse(slow);
+        ListNode revhead = rev(slow);
         
         while(revhead != null){
+            
             if(revhead.val != head.val){
                 return false;
             }
             
             revhead = revhead.next;
             head = head.next;
+            
         }
         
         return true;
+        
     }
     
-    public ListNode reverse(ListNode head){
+    
+    public ListNode rev(ListNode head){
         
         ListNode prev = null;
         
         while(head != null){
             
-            ListNode next =  head.next;
-            
+            ListNode head_next = head.next;
             head.next = prev;
-            
             prev = head;
-            
-            head = next;
+            head = head_next;
             
         }
-        
-        
         return prev;
         
     }
