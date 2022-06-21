@@ -1,33 +1,33 @@
 class MyHashSet {
     
-    ArrayList<Integer> hash;
+    ArrayList<Integer> hashset;
 
     public MyHashSet() {
-        hash = new ArrayList<>();
+        hashset = new ArrayList<>();
     }
     
     public void add(int key) {
-        if(hash.contains(key)){
+        if(hashset.contains(key)){
             return;
         }
         
-        hash.add(key);
+        hashset.add(key);
+        
     }
     
     public void remove(int key) {
-        if(hash.contains(key)){
-            hash.remove(new Integer(key));
+        if(hashset.contains(key)){
+            hashset.remove(new Integer(key));
         }
     }
     
     public boolean contains(int key) {
-        if(hash.contains(key)){
+        if(hashset.contains(key)){
             return true;
         }
         
-        else{
-            return false;
-        }
+        return false;
+        
     }
 }
 
