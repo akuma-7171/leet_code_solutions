@@ -10,17 +10,15 @@
  * }
  */
 public class Solution {
-    public ListNode getIntersectionNode(ListNode l1, ListNode l2) {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         
-        if(l1 == null || l2 == null) return null;
-        
-        ListNode a = l1;
-        ListNode b = l2;
+        ListNode a = headA;
+        ListNode b = headB;
         
         while(a != b){
             
             if(a == null){
-                a = l2;
+                a = headB;
             }
             
             else{
@@ -28,7 +26,7 @@ public class Solution {
             }
             
             if(b == null){
-                b = l1;
+                b = headA;
             }
             
             else{
