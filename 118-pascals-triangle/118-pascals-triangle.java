@@ -3,11 +3,11 @@ class Solution {
         
         List<List<Integer>> res = new ArrayList<>();
         
-        List<Integer> first_row = new ArrayList<>();
+        List<Integer> first = new ArrayList<>();
         
-        first_row.add(1);
+        first.add(1);
         
-        res.add(first_row);
+        res.add(first);
         
         for(int i=1; i<numRows; i++){
             
@@ -25,6 +25,8 @@ class Solution {
             res.add(curr);
             
         }
+     
         return res;
+        
     }
 }
