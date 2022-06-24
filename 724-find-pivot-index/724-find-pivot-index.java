@@ -3,7 +3,7 @@ class Solution {
         
         int total = 0;
         
-        for(int i : nums){
+        for(int i:nums){
             total += i;
         }
         
