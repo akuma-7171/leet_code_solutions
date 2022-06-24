@@ -5,9 +5,9 @@ class Solution {
         int p2 = n-1;
         int i = m+n-1;
         
-        while(p2 >= 0){
+        while(p2>=0){
             
-            if(p1 >= 0 && nums1[p1] >= nums2[p2]){
+            if(p1>=0 && nums1[p1] > nums2[p2]){
                 nums1[i--] = nums1[p1--];
             }
             
@@ -15,6 +15,7 @@ class Solution {
                 nums1[i--] = nums2[p2--];
             }
             
-        }  
+        }
+        
     }
 }
