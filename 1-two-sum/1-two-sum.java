@@ -8,14 +8,16 @@ class Solution {
             int compli = target-nums[i];
             
             if(!map.containsKey(compli)){
-                map.put(nums[i], i);
+                map.put(nums[i],i);
             }
             
             else{
-                return new int[]{i,map.get(compli)};
+                return new int[]{i, map.get(compli)};
             }
             
         }
+        
         throw new IllegalArgumentException("not a match");
+        
     }
 }
