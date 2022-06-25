@@ -5,8 +5,9 @@ class Solution {
         
         map.put(0,1);
         
-        int ans = 0;
         int sum = 0;
+        
+        int ans = 0;
         
         for(int i=0; i<nums.length; i++){
             
@@ -18,9 +19,7 @@ class Solution {
                 ans += map.get(rem);
             }
             
-            
             map.put(sum, map.getOrDefault(sum,0)+1);
-                
             
         }
         
@@ -28,3 +27,4 @@ class Solution {
         
     }
 }
+    
