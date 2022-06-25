@@ -5,6 +5,7 @@ class Solution {
         
         Arrays.sort(nums);
         
+        
         for(int i=0; i<nums.length-2; i++){
             
             int low = i+1;
@@ -22,18 +23,20 @@ class Solution {
                     low++;
                 }
                 
-                
+               
+                    
                     if(Math.abs(cs-target) < Math.abs(res-target)){
-                        res=cs;
+                        res = cs;
                     }
+                    
+                
                 
                 
             }
             
+            
         }
         
-        
         return res;
-        
     }
 }
