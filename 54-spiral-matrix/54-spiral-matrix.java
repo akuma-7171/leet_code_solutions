@@ -1,50 +1,51 @@
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
         
-        int row_begin = 0;
+        
+        int row_start = 0;
         int row_end = matrix.length-1;
         
-        int column_begin = 0;
+        int column_start = 0;
         int column_end = matrix[0].length-1;
         
         List<Integer> res = new ArrayList<>();
         
-        while(row_begin <= row_end && column_begin <= column_end){
+        while(row_start<=row_end && column_start<=column_end){
             
-            for(int i=column_begin; i<=column_end; i++){
-                res.add(matrix[row_begin][i]);
+            for(int i=column_start; i<=column_end; i++){
+                res.add(matrix[row_start][i]);
             }
             
-            row_begin++;
+            row_start++;
             
-            for(int i=row_begin; i<=row_end; i++){
+            for(int i=row_start; i<=row_end; i++){
                 res.add(matrix[i][column_end]);
             }
             
             column_end--;
             
-            
-            if(row_begin <= row_end){
+            if(row_start<=row_end){
                 
-                for(int i=column_end; i>=column_begin; i--){
+                for(int i=column_end; i>=column_start; i--){
                     res.add(matrix[row_end][i]);
                 }
                 
                 row_end--;
-                
+                    
             }
             
-            if(column_begin <= column_end){
-                for(int i=row_end; i>=row_begin; i--){
-                    res.add(matrix[i][column_begin]);
+            if(column_start<=column_end){
+                
+                for(int i=row_end; i>=row_start; i--){
+                    res.add(matrix[i][column_start]);
                 }
                 
-                column_begin++;
+                column_start++;
+                
             }
             
-        }
+        }  
         
         return res;
-        
     }
 }
