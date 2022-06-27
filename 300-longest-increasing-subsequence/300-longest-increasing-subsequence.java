@@ -16,7 +16,9 @@ class Solution {
                     if(dp[j]>max){
                         max = dp[j];
                     }
+                    
                 }
+                
             }
             
             dp[i] = max+1;
@@ -25,7 +27,10 @@ class Solution {
                 global = dp[i];
             }
             
+            
         }
+        
         return global;
+        
     }
 }
