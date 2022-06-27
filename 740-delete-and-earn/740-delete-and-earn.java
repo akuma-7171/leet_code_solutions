@@ -1,21 +1,23 @@
 class Solution {
     public int deleteAndEarn(int[] nums) {
         
-        if(nums == null || nums.length == 0)return 0;
-        if(nums.length == 1)return nums[0];
-
-        int RANGE = 10000;
-        int[] dp = new int[RANGE + 1];
-        for(int n : nums)dp[n] += n;
-     
-       
-        int max = dp[1];
+        int exc = 0;
+        int inc = 0;
         
-        for(int i = 2; i < RANGE + 1; i ++) {
-            dp[i] = Math.max(dp[i - 1], dp[i] + dp[i - 2]);
-            if(dp[i] > max)max = dp[i];
+        int[] count = new int[10001];
+        
+        for(int val : nums) count[val]++;
+        
+        for(int i=0; i<=10000; i++){
+            int ni = exc+count[i]*i;
+            int ne = Math.max(inc, exc);
+            
+            inc = ni;
+            exc = ne;
         }
         
-        return max;
+        
+        return Math.max(inc, exc);
+        
     }
 }
