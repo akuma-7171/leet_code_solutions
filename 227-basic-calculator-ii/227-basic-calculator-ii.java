@@ -1,37 +1,53 @@
 class Solution {
     public int calculate(String s) {
-      int len;
-    if(s==null || (len = s.length())==0) return 0;
-    Stack<Integer> stack = new Stack<Integer>();
-    int num = 0;
-    char sign = '+';
-    for(int i=0;i<len;i++){
-        if(Character.isDigit(s.charAt(i))){
-            num = num*10+s.charAt(i)-'0';
+        
+        int currNo = 0;
+        char op = '+';
+        int len = s.length();
+        Stack<Integer> stack = new Stack<>();
+        
+        for(int i=0;i<len;i++){
+            
+            char ch = s.charAt(i);
+            
+            //check for digit
+            
+            if(Character.isDigit(ch)){
+                currNo = (currNo * 10) + (ch - '0');
+            }
+            
+            //check for operator
+            
+            if(!Character.isDigit(ch) && ch != ' ' || i == len-1){
+                
+                if(op == '+'){
+                    stack.push(currNo);
+                }
+                
+                else if(op == '-'){
+                    stack.push(-currNo);
+                }
+                
+                else if(op == '*'){
+                    stack.push(stack.pop()*currNo);
+                }
+                
+                else if(op == '/'){
+                    stack.push(stack.pop()/currNo);
+                }
+                
+                currNo = 0;
+                
+                op = ch;
+            }
         }
-        if((!Character.isDigit(s.charAt(i)) &&' '!=s.charAt(i)) || i==len-1){
-            if(sign=='-'){
-                stack.push(-num);
-            }
-            if(sign=='+'){
-                stack.push(num);
-            }
-            if(sign=='*'){
-                stack.push(stack.pop()*num);
-            }
-            if(sign=='/'){
-                stack.push(stack.pop()/num);
-            }
-            sign = s.charAt(i);
-            num = 0;
+        
+        int sum = 0;
+        while(!stack.isEmpty()){
+            sum += stack.pop();
         }
-    }
-
-    int re = 0;
-    for(int i:stack){
-        re += i;
-    }
-    return re;
-
+        
+        return sum;
+        
     }
 }
