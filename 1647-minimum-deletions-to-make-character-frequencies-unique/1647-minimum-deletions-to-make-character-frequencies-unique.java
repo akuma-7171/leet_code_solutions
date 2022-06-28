@@ -1,27 +1,28 @@
 class Solution {
     public int minDeletions(String s) {
         
-        int[] frequency = new int[26];
-                                  
-        for (int i = 0; i < s.length(); i++) {
-            frequency[s.charAt(i) - 'a']++;
+        int[] count_char = new int[26];
+        
+        for(char c : s.toCharArray()){
+            count_char[c-'a']++;
         }
         
-        int deleteCount = 0;
-       
-        HashSet<Integer> seenFrequencies = new HashSet<>();
-                                  
-        for (int i = 0; i < 26; i++) {
+        HashSet<Integer> seen = new HashSet<>();
+        
+        int count = 0;
+        
+        for(int i=0; i<26; i++){
             
-            while (frequency[i] > 0 && seenFrequencies.contains(frequency[i])) {
-                frequency[i]--;
-                deleteCount++;
+            while(count_char[i] > 0 && seen.contains(count_char[i])){
+                count_char[i]--;
+                count++;
             }
             
-            seenFrequencies.add(frequency[i]);
+            seen.add(count_char[i]);
             
         }
         
-        return deleteCount;
+        return count;
+        
     }
 }
