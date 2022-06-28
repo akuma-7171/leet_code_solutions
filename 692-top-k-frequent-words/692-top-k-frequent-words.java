@@ -6,7 +6,7 @@ class Solution {
             map.put(s, map.getOrDefault(s, 0)+ 1);
         
 		//custom comparator for comparing the words
-        Queue<String> q = new PriorityQueue<>((w1, w2) -> map.get(w1).equals(map.get(w2)) ?
+        PriorityQueue<String> q = new PriorityQueue<>((w1, w2) -> map.get(w1).equals(map.get(w2)) ?
                 w2.compareTo(w1) : map.get(w1) - map.get(w2));
         
 		//add to the heap
@@ -17,9 +17,12 @@ class Solution {
                                        
         //add to the result
         List<String> result = new ArrayList<>();
+        
         while (!q.isEmpty())
             result.add(q.poll());
+        
         Collections.reverse(result);
+        
         return result;
     }
 }
