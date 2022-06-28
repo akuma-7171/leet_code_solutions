@@ -1,25 +1,23 @@
 class Solution {
-    public String longestCommonPrefix(String[] strs) {
+    public List<String> generateParenthesis(int n) {
         
-        if(strs == null){
-            return null;
+        List<String> res = new ArrayList<>();
+        
+        backtrack(res,"",0,0,n);
+        
+        return res;
+    }
+    
+    public void backtrack(List<String> res, String s, int open, int close, int n){
+        
+        if(s.length() == n*2){
+            res.add(s);
+            return;
         }
         
-        String prefix = strs[0];
-        
-        
-        for(int i=1; i<strs.length; i++){
-            
-            while(strs[i].indexOf(prefix) != 0){
-                
-                prefix = prefix.substring(0, prefix.length()-1);
-                
-            }
-            
-        }
-        
-        
-        return prefix;
+        if(open < n) backtrack(res, s+'(', open+1, close, n);
+        if(close < open) backtrack(res, s+')',open, close+1, n);
         
     }
+    
 }
