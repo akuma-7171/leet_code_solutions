@@ -7,23 +7,21 @@ class Solution {
         
         for(String s : strs){
             
-            char chaar[] = s.toCharArray();
-            Arrays.sort(chaar);
-            String sorted = new String(chaar);
+            char[] ch = s.toCharArray();
+            Arrays.sort(ch);
+            String sorted = new String(ch);
             
             if(!map.containsKey(sorted)){
                 map.put(sorted, new ArrayList<>());
             }
             
-            
-                map.get(sorted).add(s);
-            
+            map.get(sorted).add(s);
             
         }
+        
         
         res.addAll(map.values());
         
         return res;
-        
     }
 }
