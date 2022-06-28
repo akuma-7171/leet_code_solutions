@@ -3,9 +3,12 @@ class Solution {
         
         Stack<String> st = new Stack<>();
         
-        String vals[] =  path.split("/");
         
-        for(String s : vals){
+        String[] strs = path.split("/");
+        
+        
+            
+        for(String s : strs){
             
             if(s.equals("..") && !st.isEmpty()){
                 st.pop();
@@ -17,8 +20,7 @@ class Solution {
             
         }
         
-        
-        return "/"+String.join("/", st);
+            return "/"+String.join("/",st);
         
     }
 }
