@@ -1,27 +1,29 @@
 class Solution {
     public int balancedStringSplit(String s) {
         
-        int right_count = 0;
+        int right = 0;
+        int left = 0;
         int partition_count = 0;
-        int left_count=0;
         
         for(char c : s.toCharArray()){
             
             if(c == 'R'){
-                right_count++;
+                right++;
             }
             
             else{
-                left_count++;
+                left++;
             }
             
-            if (left_count==right_count){
+            if(right == left){
                 partition_count++;
-                left_count=0;
-                right_count=0;
+                left = 0;
+                right = 0;
             }
+            
         }
         
         return partition_count;
+        
     }
 }
