@@ -7,7 +7,7 @@ class Solution {
             map.put(i, map.getOrDefault(i,0)+1);
         }
         
-        for(Integer i : map.keySet()){
+        for(int i : map.keySet()){
 		   if(map.get(i)%2 !=0){
 			    return false;
 		    }	
