@@ -3,12 +3,12 @@ class Solution {
         
         int[] res = new int[46];
         
-        
+        int sum = 0;
         
         while(lowLimit<=highLimit){
             
             int temp = lowLimit;
-            int sum = 0;
+            sum = 0;
             
             while(temp>0){
                 
