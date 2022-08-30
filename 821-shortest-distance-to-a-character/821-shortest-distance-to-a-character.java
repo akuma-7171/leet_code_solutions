@@ -1,14 +1,24 @@
 class Solution {
-    public int[] shortestToChar(String S, char C) {
-         int n = S.length(), pos = -n, res[] = new int[n];
-        for (int i = 0; i < n; ++i) {
-            if (S.charAt(i) == C) pos = i;
-            res[i] = i - pos;
+    public int[] shortestToChar(String s, char c) {
+        
+        int[] res = new int[s.length()];
+        
+        int pos = -s.length();
+        
+        for(int i=0; i<s.length(); i++){
+            if(s.charAt(i) == c){
+                pos = i;
+            }
+            
+            res[i] = i-pos;
         }
-        for (int i = pos - 1; i >= 0; --i) {
-            if (S.charAt(i) == C)  pos = i;
-            res[i] = Math.min(res[i], pos - i);
+        
+        for(int  i=pos-1; i>=0; i--){
+            if(s.charAt(i) == c) pos = i;
+            res[i] = Math.min(res[i], pos-i);
         }
+        
         return res;
+        
     }
 }
