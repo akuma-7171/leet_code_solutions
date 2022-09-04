@@ -24,29 +24,32 @@
  * }
  */
 class Solution {
-    public TreeNode recur(int start, int end, List<Integer>ans)
-    {
-        if(start>end)
-        {
+    public TreeNode sortedListToBST(ListNode head) {
+        
+        List<Integer> res = new ArrayList<>();
+        
+        while(head != null){
+            res.add(head.val);
+            head = head.next;
+        }
+        
+       return recur(0,res.size()-1, res);
+    }
+    
+    public TreeNode recur(int start, int end, List<Integer> res){
+        
+        if(start>end){
             return null;
         }
         
-        int mid=(start+end)/2;
-        TreeNode currnode= new TreeNode(ans.get(mid));
-        currnode.left=recur(start, mid-1, ans);
-        currnode.right=recur(mid+1, end, ans);
-        return currnode;
+        int mid = start+(end-start)/2;
+        
+        TreeNode root = new TreeNode(res.get(mid));
+        root.left = recur(start,mid-1,res);
+        root.right = recur(mid+1,end,res);
+        
+        return root;
+        
     }
-    public TreeNode sortedListToBST(ListNode head) {
-        
-        List<Integer> ans=new ArrayList<>();
-        
-        while(head!=null)
-        {
-            ans.add(head.val);
-            head=head.next;
-        }
-        
-        return recur(0, ans.size()-1, ans);
-    }
+    
 }
