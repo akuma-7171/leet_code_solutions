@@ -26,7 +26,7 @@ class Solution {
             res.add(curr);
         }
         
-        System.out.println(res);
+        
         
         return res.get(n);
         
