@@ -1,14 +1,34 @@
 class Solution {
-    public List<Integer> getRow(int k) {
+    public List<Integer> getRow(int n) {
         
-      Integer[] arr = new Integer[k + 1];
-        Arrays.fill(arr, 0);
-        arr[0] = 1;
+        List<List<Integer>> res = new ArrayList<>();
         
-        for (int i = 1; i <= k; i++) 
-            for (int j = i; j > 0; j--) 
-                arr[j] = arr[j] + arr[j - 1];
+        List<Integer> first = new ArrayList<>();
+        first.add(1);
         
-        return Arrays.asList(arr);
+        res.add(first);
+        
+        if(n == 0){
+            return first;
+        }
+        
+        for(int i=1; i<=n; i++){
+            List<Integer> prev = res.get(i-1);
+            List<Integer> curr = new ArrayList<>();
+            curr.add(1);
+            
+            for(int j=1; j<i; j++){
+                curr.add(prev.get(j-1)+prev.get(j));
+            }
+            
+            curr.add(1);
+            
+            res.add(curr);
+        }
+        
+        System.out.println(res);
+        
+        return res.get(n);
+        
     }
 }
