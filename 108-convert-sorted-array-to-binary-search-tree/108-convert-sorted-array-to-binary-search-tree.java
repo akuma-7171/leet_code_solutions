@@ -15,28 +15,23 @@
  */
 class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
-        
-        if(nums.length == 0){
-            return null;
-        }
-        
-        return construct(nums, 0, nums.length-1);
+       TreeNode root = make(nums,0,nums.length-1);
+        return root;
     }
     
-    public TreeNode construct(int nums[], int low, int high){
+    public TreeNode make(int[] nums, int start, int end){
         
-        if(low > high) return null;
+        if(start>end) return null;
         
-        int mid = low + (high-low)/2;
+        int mid = start+(end-start)/2;
         
-        TreeNode newnode = new TreeNode(nums[mid]);
+        TreeNode main = new TreeNode(nums[mid]);
+        TreeNode left = make(nums,start,mid-1);
+        TreeNode right = make(nums,mid+1,end);
         
-        newnode.left = construct(nums, low, mid-1);
-        newnode.right = construct(nums, mid+1, high);
+        main.left = left;
+        main.right = right;
         
-        
-        return newnode;
-        
+        return main;
     }
-    
 }
